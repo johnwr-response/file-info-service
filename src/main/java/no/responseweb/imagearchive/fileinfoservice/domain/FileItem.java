@@ -34,7 +34,9 @@ public class FileItem {
     @UpdateTimestamp
     private Timestamp lastModifiedDate;
 
-    private UUID fileStorePathId; // TODO: this should point to an unambiguous object containing both fileStoreId and pathId
+    private UUID fileStorePathId;
 
     private String filename;
+
+    private Long size;
 }

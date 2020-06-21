@@ -2,15 +2,9 @@ package no.responseweb.imagearchive.fileinfoservice.web.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import no.responseweb.imagearchive.fileinfoservice.model.FileItemDto;
-import no.responseweb.imagearchive.fileinfoservice.model.FilePathDto;
-import no.responseweb.imagearchive.fileinfoservice.model.FileStoreDto;
-import no.responseweb.imagearchive.fileinfoservice.repositories.FileItemRepository;
 import no.responseweb.imagearchive.fileinfoservice.repositories.FilePathRepository;
-import no.responseweb.imagearchive.fileinfoservice.repositories.FileStoreRepository;
-import no.responseweb.imagearchive.fileinfoservice.web.mappers.FileItemMapper;
 import no.responseweb.imagearchive.fileinfoservice.web.mappers.FilePathMapper;
-import no.responseweb.imagearchive.fileinfoservice.web.mappers.FileStoreMapper;
+import no.responseweb.imagearchive.model.FilePathDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

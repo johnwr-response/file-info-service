@@ -38,11 +38,11 @@ public class FileSampleDataLoader implements CommandLineRunner {
                 .nickname("test a")
                 .build();
         FileStore savedStore = fileStoreRepository.save(store);
-        FilePath rootpath = FilePath.builder()
+        FilePath rootPath = FilePath.builder()
                 .fileStoreId(savedStore.getId())
                 .relativePath(pathBaseFileStore.relativize(pathBaseFileStore).toString())
                 .build();
-        FilePath savedRootPath = filePathRepository.save(rootpath);
+        FilePath savedRootPath = filePathRepository.save(rootPath);
         FilePath path = FilePath.builder()
                 .fileStoreId(savedStore.getId())
                 .relativePath(pathBaseFileStore.relativize(pathSampleSubDir).toString())
