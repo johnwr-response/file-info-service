@@ -21,10 +21,16 @@ public class FileInfoFilePathController {
     private final FilePathRepository filePathRepository;
     private final FilePathMapper filePathMapper;
 
-    @GetMapping("api/v1/filePath/{fileStoreId}")
+    @GetMapping("api/v1/filePaths/{fileStoreId}")
     public List<FilePathDto> getFilePathsFromStoreId(@PathVariable UUID fileStoreId) {
         log.info("Finding filePaths: {}", fileStoreId);
         return filePathRepository.findByFileStoreId(fileStoreId).stream().map(filePathMapper::filePathToFilePathDto).collect(Collectors.toList());
+    }
+
+    @GetMapping("api/v1/filePath/{filePathId}")
+    public FilePathDto getFilePath(@PathVariable UUID filePathId) {
+        log.info("Finding filePath: {}", filePathId);
+        return filePathMapper.filePathToFilePathDto(filePathRepository.findById(filePathId).orElseThrow(NotFoundException::new));
     }
 
     @GetMapping("api/v1/filePath/{fileStoreId}/file-store-root-folder")

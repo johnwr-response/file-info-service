@@ -30,4 +30,11 @@ public class FileInfoFileItemController {
                 .map(fileItemMapper::fileItemToFileItemDto)
                 .collect(Collectors.toList());
     }
+
+    @GetMapping("api/v1/fileItem/{fileItemId}")
+    public FileItemDto getFileItem(@PathVariable UUID fileItemId) {
+        log.info("Finding fileItem: {}", fileItemId);
+        return fileItemMapper.fileItemToFileItemDto(fileItemRepository.findById(fileItemId).orElseThrow(NotFoundException::new));
+    }
+
 }
